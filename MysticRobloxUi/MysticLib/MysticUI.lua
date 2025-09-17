@@ -5,7 +5,7 @@
 ---@diagnostic disable: undefined-global
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local version = "1.0.0"
+local version = "1.0.1"
 
 local MysticUI = {}
 
@@ -49,10 +49,18 @@ MysticUI.VisualTab = MysticUI.Window:CreateTab("Visuals", "scan-eye")
 MysticUI.ExTab = MysticUI.Window:CreateTab("Experimental", "wrench")
 MysticUI.MiscTab = MysticUI.Window:CreateTab("Misc", "bolt")
 
+local UnloadButton = MysticUI.MiscTab:CreateButton({
+   Name = "Unload",
+   Callback = function()
+      Rayfield:Destroy()
+   end,
+})
+
 --for exec paste all tabs under here
 
 -- leave 
 
 -- loadconfig
 -- Rayfield:LoadConfiguration()
+
 return MysticUI
