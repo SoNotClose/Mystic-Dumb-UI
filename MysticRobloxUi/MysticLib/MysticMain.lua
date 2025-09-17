@@ -19,7 +19,8 @@ local changelog = {
    "Added JumpPower (slider)",
    "Added Teleport To Player (dropdown)",
    "Added Teleport Mode (dropdown)",
-   "alot more"
+   "Fixed CFRame TP",
+   "yes theres bugs with reg tp ik",
 }
 
 local newchangelog = log .. "\n\n"
@@ -28,7 +29,8 @@ for _, e in ipairs(changelog) do
    newchangelog = newchangelog .. "- " .. e .. "\n"
 end
 
-local cchangelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+local cchangelog = MysticUI.MainTab:CreateParagraph({Title = "ChangeLog " .. versiongot, Content = newchangelog})
+
 
 
 
