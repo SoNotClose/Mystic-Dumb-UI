@@ -77,7 +77,7 @@ updateFlingList() -- same old same old
 game.Players.PlayerAdded:Connect(updateFlingList)
 game.Players.PlayerRemoving:Connect(updateFlingList)
 
-local ForceUpdateFlngList = pt:CreateButton({
+local ForceUpdateFlngList = fun:CreateButton({
    Name = "Force Update List",
    Callback = function()
       updateFlingList()
@@ -144,6 +144,7 @@ local Fling = fun:CreateToggle({
       end
    end,
 })
+
 
 
 
