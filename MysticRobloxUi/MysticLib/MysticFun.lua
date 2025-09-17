@@ -52,7 +52,7 @@ local SpinBotSpeed = fun:CreateSlider({
 
 local flingTarget = nil
 
-local FlingDropdown = Tab:CreateDropdown({
+local FlingDropdown = fun:CreateDropdown({
    Name = "Fling Player",
    Options = {},
    CurrentOption = {},
@@ -86,7 +86,7 @@ local ForceUpdateFlngList = pt:CreateButton({
 
 local flingPower = 10
 
-local FlngPower = Tab:CreateSlider({
+local FlngPower = fun:CreateSlider({
    Name = "Fling Power",
    Range = {1, 25},
    Increment = 1,
@@ -102,7 +102,7 @@ local flingActive = false
 
 local flingThread = nil
 
-local Fling = Tab:CreateToggle({
+local Fling = fun:CreateToggle({
    Name = "Fling",
    CurrentValue = false,
    Flag = "fling",
@@ -144,4 +144,5 @@ local Fling = Tab:CreateToggle({
       end
    end,
 })
+
 
