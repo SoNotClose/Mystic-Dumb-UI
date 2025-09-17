@@ -5,6 +5,7 @@ most of the stuff is fuckry but hey
 <h1 align="center"> 📑 Script 📑<br>
 <br></h1>
 
+# BROKEN AND GETTING A HARD REWORK
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/Mystic.lua"))()
 ```
