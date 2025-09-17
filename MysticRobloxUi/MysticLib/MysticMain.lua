@@ -8,6 +8,7 @@ local versiongot = MysticUI.version
 local log = "The release of mystic hub"
 
 local changelog = {
+   "FIXED THE UI FINNALY",
    "Added Main Tab",
    "Added Player Tab",
    "Added Fun Tab",
@@ -27,7 +28,8 @@ for _, e in ipairs(changelog) do
    newchangelog = newchangelog .. "- " .. e .. "\n"
 end
 
--- local Changelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+local cchangelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+
 
 
 
