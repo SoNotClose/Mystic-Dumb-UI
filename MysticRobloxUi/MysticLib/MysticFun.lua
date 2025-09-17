@@ -2,7 +2,7 @@
 
 ---@diagnostic disable: undefined-global
 local MysticUI = require("MysticUI")
-local fun = MysticUI.FunTab -- iamgine if i did "fn" 
+local fun = MysticUI.FunTab
 local FunSection = fun:CreateSection("Fun")
 
 local spinning = false
@@ -144,3 +144,4 @@ local Fling = Tab:CreateToggle({
       end
    end,
 })
+
