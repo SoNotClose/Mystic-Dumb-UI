@@ -1,7 +1,7 @@
--- ill post stupid things here
+-- ill post expermental things here
 
----@diagnostic disable: undefined-global
-local MysticUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/MysticLib/MysticUI.lua"))()
+getgenv().MysticUI = getgenv().MysticUI or loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/MysticLib/MysticUI.lua"))()
+local MysticUI = getgenv().MysticUI
 local ex = MysticUI.ExTab
 local ExSection = ex:CreateSection("Experimental")
 
@@ -82,7 +82,7 @@ local AntiDelay = ex:CreateToggle({
    CurrentValue = false,
    Flag = "antidelay",
    Callback = function(Value)
-      mps = 15.5327 -- accoring to my stopwatch
+      mps = 15.5327 -- accoring to my stopwatch [PATCHED] litterly in seconsd
    end,
 })
 
@@ -169,3 +169,4 @@ local SpamMessageToggle = ex:CreateToggle({
    end,
 
 })
+
