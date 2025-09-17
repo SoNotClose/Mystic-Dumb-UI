@@ -1,7 +1,7 @@
 -- playa stuff
 
 ---@diagnostic disable: undefined-global
-local MysticUI = require("MysticUI")
+local MysticUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/MysticLib/MysticUI.lua"))()
 
 local pt = MysticUI.PlayerTab
 local PlayerSection = pt:CreateSection("Player")
@@ -133,4 +133,5 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
