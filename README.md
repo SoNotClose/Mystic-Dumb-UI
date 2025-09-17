@@ -6,7 +6,7 @@ most of the stuff is fuckry but hey
 <br></h1>
 
 ```lua
-loadstring(game:HttpGet("soon"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/Mystic.lua"))()
 ```
 
 #
