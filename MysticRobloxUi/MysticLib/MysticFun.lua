@@ -1,7 +1,7 @@
 -- ill post stupid things here
 
 ---@diagnostic disable: undefined-global
-local MysticUI = require("MysticUI")
+local MysticUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/MysticLib/MysticUI.lua"))()
 local fun = MysticUI.FunTab
 local FunSection = fun:CreateSection("Fun")
 
@@ -144,5 +144,6 @@ local Fling = fun:CreateToggle({
       end
    end,
 })
+
 
 
