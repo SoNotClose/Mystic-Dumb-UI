@@ -27,6 +27,7 @@ for _, e in ipairs(changelog) do
    newchangelog = newchangelog .. "- " .. e .. "\n"
 end
 
-local Changelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+-- local Changelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+
 
 
