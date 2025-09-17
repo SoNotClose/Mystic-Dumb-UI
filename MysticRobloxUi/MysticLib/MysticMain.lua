@@ -28,9 +28,10 @@ for _, entry in ipairs(changelog) do
 end
 
 local changelogP = MysticUI.MainTab:CreateParagraph({
-   Title = "Changelog " .. versiongot or "Unknown"),
+   Title = "Changelog",
    Content = changelogText
 })
+
 
 
 
