@@ -67,6 +67,8 @@ updatePlayerList()
 game.Players.PlayerAdded:Connect(updatePlayerList)
 game.Players.PlayerRemoving:Connect(updatePlayerList)
 
+
+
 local ForceUpdatePlrList = pt:CreateButton({
    Name = "Force Update List",
    Callback = function()
@@ -133,6 +135,7 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
 
 
