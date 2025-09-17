@@ -2,7 +2,6 @@
 -- im mainly making this so i can dilly dally with lua
 -- all open sourced
 
----@diagnostic disable: undefined-global
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local version = "1.0.1"
@@ -63,6 +62,6 @@ local UnloadButton = MysticUI.MiscTab:CreateButton({
 
 -- loadconfig
 -- Rayfield:LoadConfiguration()
-
 return MysticUI
+
 
