@@ -27,10 +27,8 @@ for _, entry in ipairs(changelog) do
    changelogText = changelogText .. "- " .. entry .. "\n"
 end
 
-local changelogP = MysticUI.MainTab:CreateParagraph({
-   Title = "Changelog",
-   Content = changelogText
-})
+local cchangelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+
 
 
 
