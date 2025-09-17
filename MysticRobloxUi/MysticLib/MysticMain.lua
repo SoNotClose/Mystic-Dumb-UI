@@ -1,7 +1,7 @@
 -- ill post stupid things here
 
 ---@diagnostic disable: undefined-global
-local MysticUI = require("MysticUI")
+local MysticUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/SoNotClose/Mystic-Dumb-UI/main/MysticRobloxUi/MysticLib/MysticUI.lua"))()
 
 local versiongot = MysticUI.version
 
@@ -28,3 +28,4 @@ for _, e in ipairs(changelog) do
 end
 
 local Changelog = MysticUI.MainTab:CreateLabel(changelogText, "megaphone", Color3.fromRGB(120, 120, 120), false)
+
