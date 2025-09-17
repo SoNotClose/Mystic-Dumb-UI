@@ -49,6 +49,7 @@ MysticUI.VisualTab = MysticUI.Window:CreateTab("Visuals", "scan-eye")
 MysticUI.ExTab = MysticUI.Window:CreateTab("Experimental", "wrench")
 MysticUI.MiscTab = MysticUI.Window:CreateTab("Misc", "bolt")
 
+local MiscSection = MysticUI.MiscTab:CreateSection("Misc")
 local UnloadButton = MysticUI.MiscTab:CreateButton({
    Name = "Unload",
    Callback = function()
@@ -64,3 +65,4 @@ local UnloadButton = MysticUI.MiscTab:CreateButton({
 -- Rayfield:LoadConfiguration()
 
 return MysticUI
+
