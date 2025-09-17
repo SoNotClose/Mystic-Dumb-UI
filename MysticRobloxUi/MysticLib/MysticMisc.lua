@@ -2,7 +2,7 @@
 
 ---@diagnostic disable: undefined-global
 local MysticUI = require("MysticUI")
-local misc = MysticUI.MiscTab -- iamgine if i did "fn" 
+local misc = MysticUI.MiscTab
 local MiscSection = misc:CreateSection("Misc")
 
 local UnloadButton = MysticUI.MiscTab:CreateButton({
@@ -10,4 +10,5 @@ local UnloadButton = MysticUI.MiscTab:CreateButton({
    Callback = function()
       Rayfield:Destroy()
    end,
+
 })
