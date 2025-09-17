@@ -5,10 +5,10 @@ local MysticUI = getgenv().MysticUI
 
 local versiongot = MysticUI.version
 
-local log = "The release of mystic hub"
+local log = "The release of Mystic Hub"
 
 local changelog = {
-   "FIXED THE UI FINNALY",
+   "FIXED THE UI FINALLY",
    "Added Main Tab",
    "Added Player Tab",
    "Added Fun Tab",
@@ -19,17 +19,19 @@ local changelog = {
    "Added JumpPower (slider)",
    "Added Teleport To Player (dropdown)",
    "Added Teleport Mode (dropdown)",
-   "Fixed CFRame TP",
-   "yes theres bugs with reg tp ik",
+   "Fixed CFrame TP"
 }
 
-local newchangelog = log .. "\n\n"
-
-for _, e in ipairs(changelog) do
-   newchangelog = newchangelog .. "- " .. e .. "\n"
+local changelogText = log .. "\n\n"
+for _, entry in ipairs(changelog) do
+   changelogText = changelogText .. "- " .. entry .. "\n"
 end
 
-local cchangelog = MysticUI.MainTab:CreateParagraph({Title = "ChangeLog " .. versiongot, Content = newchangelog})
+local changelogP = MysticUI.MainTab:CreateParagraph({
+   Title = "Changelog " .. versiongot,
+   Content = changelogText
+})
+
 
 
 
