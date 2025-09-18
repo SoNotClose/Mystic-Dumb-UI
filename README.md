@@ -1,4 +1,5 @@
 # Mystic-Dumb-UI
+<h3 align="center">a ui full of dumb shit<br><br></h3>
 <h1 align="center">ABOUT IT<br><br></h1>
 This isnt meant to be anything good its a basic script with over [8]+ features as of the latest version
 im making this as kind of a project because i want to get into more lua development, the reason why i made this open sourced is because some of the code i written ive gotton from open sourced things
