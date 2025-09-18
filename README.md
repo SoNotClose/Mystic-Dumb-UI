@@ -4,7 +4,8 @@ most of the stuff is fuckry but hey
 -# Universal btw
 
 
-# CHANGELOGS 
+<h1 align="center"> CHANGELOGS <br>
+<br></h1>
 
 <h1 align="center"> 📑 Script 📑<br>
 <br></h1>
