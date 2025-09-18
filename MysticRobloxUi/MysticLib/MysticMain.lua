@@ -27,8 +27,9 @@ for _, entry in ipairs(changelog) do
    changelogText = changelogText .. "- " .. entry .. "\n"
 end
 
--- local cchangelog = MysticUI.MainTab:CreateLabel(newchangelog, "megaphone", Color3.fromRGB(120, 120, 120), false)
+local cchangelog = MysticUI.MainTab:CreateLabel("CHANGELOG CAN BE FOUND ON GITHUB", "megaphone", Color3.fromRGB(120, 120, 120), false)
 -- will get readded wehen i learn a little more
+
 
 
 
