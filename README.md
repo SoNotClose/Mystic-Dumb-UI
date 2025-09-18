@@ -4,8 +4,15 @@ most of the stuff is fuckry but hey
 -# Universal btw
 
 
-<h1 align="center"> CHANGELOGS <br>
-<br></h1>
+<h1 align="center">CHANGELOGS<br><br></h1>
+
+<details>
+  <summary>[9/14/25] Update 1.0.1</summary>
+  <ul>
+    <li>testing</li>
+  </ul>
+</details>
+
 
 <h1 align="center"> 📑 Script 📑<br>
 <br></h1>
