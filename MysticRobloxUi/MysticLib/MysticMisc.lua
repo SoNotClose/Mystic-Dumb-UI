@@ -5,8 +5,20 @@ local MysticUI = getgenv().MysticUI
 local misc = MysticUI.MiscTab
 -- local MiscSection = misc:CreateSection("Misc")
 
+local Rejoin = MysticUI.MiscTab:CreateButton({
+   Name = "Rejoin",
+   Callback = function()
+      local TS = game:GetService("TeleportService")
+      local Plrs = game:GetService("Players")
+      local pId = game.PlaceId
+      local jId = game.JobId
+      TS:TeleportToPlaceInstance(pId, jId, Plrs.LocalPlayer)
+   end,
+})
+
 
 })
+
 
 
 
