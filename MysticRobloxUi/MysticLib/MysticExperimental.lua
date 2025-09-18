@@ -119,7 +119,7 @@ local TestMessage = ex:CreateButton({
 })
 
 
-local SpamMessageToggle = ex:CreateToggle({
+local SpamMessage = ex:CreateToggle({
    Name = "Spam",
    CurrentValue = false,
    Flag = "spammessagetoggle",
@@ -169,4 +169,5 @@ local SpamMessageToggle = ex:CreateToggle({
    end,
 
 })
+
 
