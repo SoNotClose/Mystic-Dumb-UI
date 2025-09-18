@@ -1,8 +1,8 @@
 # Mystic-Dumb-UI
 <h1 align="center">ABOUT IT<br><br></h1>
-***
-A roblox script full of dumb shit, im learning lua so alot of the shit is not gonna be good but give me some time
-most of the stuff is fuckry but hey
+This isnt meant to be anything good its a basic script with over [8]+ features as of the latest version
+im making this as kind of a project because i want to get into more lua development, the reason why i made this open sourced is because some of the code i written ive gotton from open sourced things
+so eh
 
 ***
 
