@@ -1,7 +1,6 @@
 # Mystic-Dumb-UI
 A roblox script full of dumb shit, im learning lua so alot of the shit is not gonna be good but give me some time
 most of the stuff is fuckry but hey
--# Universal btw
 
 
 <h1 align="center">CHANGELOGS<br><br></h1>
