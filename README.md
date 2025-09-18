@@ -6,6 +6,13 @@ most of the stuff is fuckry but hey
 <h1 align="center">CHANGELOGS<br><br></h1>
 
 <details>
+  <summary>[9/17/25] Update 1.0.1</summary>
+  <ul>
+    <li>FIXED THE UI AND EVERYTHING!!!!</li>
+  </ul>
+</details>
+
+<details>
   <summary>[9/16/25] Update 1.0.0</summary>
   <ul>
     <li>Added Main Tab</li>
@@ -27,13 +34,6 @@ most of the stuff is fuckry but hey
     <li>Added Spam Speed (slider)</li>
     <li>Added Anti Delay (sorta works)</li>
     <li>and expect alot more soon!!!!</li>
-  </ul>
-</details>
-
-<details>
-  <summary>[9/17/25] Update 1.0.1</summary>
-  <ul>
-    <li>FIXED THE UI AND EVERYTHING!!!!</li>
   </ul>
 </details>
 
