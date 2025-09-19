@@ -40,24 +40,32 @@ local JPSlida = pt:CreateSlider({
 
 local SizeSlider = pt:CreateSlider({
    Name = "Player Size",
-   Range = {0.1, 3.0},
+   Range = {0.1, 5.0}, -- You can go higher, but physics may get weird : nexus
    Increment = 0.1,
    Suffix = "x",
    CurrentValue = 1.0,
    Flag = "charsize",
    Callback = function(Value)
-      local Players = game:GetService("Players")
       local player = Players.LocalPlayer
-      if player and player.Character then
-         local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-         if humanoid then
-            local desc = humanoid:GetAppliedDescription()
-            desc.HeightScale = Value
-            desc.WidthScale = Value
-            desc.DepthScale = Value
-            desc.HeadScale = Value
-            humanoid:ApplyDescription(desc) -- not moine
+      local character = player.Character
+      if not character then return end
+
+      for _, part in ipairs(character:GetDescendants()) do
+         if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+            part.Size = Vector3.new(1,1,1) * Value
+         elseif part:IsA("SpecialMesh") then
+            part.Scale = Vector3.new(1,1,1) * Value
          end
+      end
+
+      local root = character:FindFirstChild("HumanoidRootPart")
+      if root then
+         root.Size = Vector3.new(2,2,1) * Value
+      end
+
+      local humanoid = character:FindFirstChildOfClass("Humanoid")
+      if humanoid then
+         humanoid.HipHeight = Value * 2
       end
    end,
 })
@@ -186,6 +194,7 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
 
 
