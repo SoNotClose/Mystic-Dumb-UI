@@ -40,7 +40,7 @@ local SpinBot = fun:CreateToggle({
 
 local SpinBotSpeed = fun:CreateSlider({
    Name = "Spin Speed",
-   Range = {1, 50},
+   Range = {1, 150},
    Increment = 1,
    Suffix = "°/frame",
    CurrentValue = 5,
@@ -144,6 +144,7 @@ local Fling = fun:CreateToggle({
       end
    end,
 })
+
 
 
 
