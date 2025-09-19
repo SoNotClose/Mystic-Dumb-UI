@@ -145,7 +145,63 @@ local Fling = fun:CreateToggle({
    end,
 })
 
+local savedCFrame = nil
 
+local SavePos = fun:CreateButton({
+    Name = "Save Position",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local rootPart = character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            savedCFrame = rootPart.CFrame
+        end
+    end,
+})
+
+
+
+
+
+local TweenService = game:GetService("TweenService")
+local tsped = nil
+
+local LoadType = Tab:CreateDropdown({
+    Name = "Load Type",
+    Options = {"Tween", "CFrame"},
+    CurrentOption = {"Tween"},
+    MultipleOptions = false,
+    Flag = "loadtype",
+    Callback = function(Options)
+        local method = Options[1]
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local rootPart = character:FindFirstChild("HumanoidRootPart")
+
+        if savedCFrame and rootPart then
+            if method == "Tween" then
+                local speed = tsped or 10
+                local tweenInfo = TweenInfo.new(speed / 10, Enum.EasingStyle.Linear)
+                local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = savedCFrame})
+                tween:Play()
+            elseif method == "CFrame" then
+                rootPart.CFrame = savedCFrame
+            end
+        end
+    end,
+})
+
+local TweenSpeedSlida = fun:CreateSlider({
+    Name = "Tween Speed",
+    Range = {0.1, 10},
+    Increment = 0.1,
+    Suffix = "Speed",
+    CurrentValue = 10,
+    Flag = "tweenspeedslia",
+    Callback = function(Value)
+         tsped = value
+    end,
+})
 
 
 
