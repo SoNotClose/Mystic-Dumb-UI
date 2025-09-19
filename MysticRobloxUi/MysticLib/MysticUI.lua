@@ -47,12 +47,27 @@ MysticUI.FunTab = MysticUI.Window:CreateTab("Fun", "party-popper")
 MysticUI.VisualTab = MysticUI.Window:CreateTab("Visuals", "scan-eye")
 MysticUI.ExTab = MysticUI.Window:CreateTab("Experimental", "wrench")
 MysticUI.MiscTab = MysticUI.Window:CreateTab("Misc", "bolt")
+MysticUI.UITab = MysticUI.Window:CreateTab("UI", "file")
 
-local MiscSection = MysticUI.MiscTab:CreateSection("Misc")
-local UnloadButton = MysticUI.MiscTab:CreateButton({
+local UISection = MysticUI.UITab:CreateSection("UI")
+local Unload = MysticUI.UITab:CreateButton({
    Name = "Unload",
    Callback = function()
       Rayfield:Destroy()
+   end,
+})
+
+local SaveConfig = MysticUI.UITab:CreateButton({
+   Name = "Save Config",
+   Callback = function()
+      Rayfield:SaveConfiguration()
+   end,
+})
+
+local LoadConfig = MysticUI.UITab:CreateButton({
+   Name = "Load Config",
+   Callback = function()
+      Rayfield:LoadConfiguration()
    end,
 })
 
@@ -63,5 +78,6 @@ local UnloadButton = MysticUI.MiscTab:CreateButton({
 -- loadconfig
 -- Rayfield:LoadConfiguration()
 return MysticUI
+
 
 
