@@ -221,9 +221,10 @@ local TweenSpeedSlida = fun:CreateSlider({
     CurrentValue = 10,
     Flag = "tweenspeedslia",
     Callback = function(Value)
-         tsped = value
+         tsped = Value
     end,
 })
+
 
 
 
