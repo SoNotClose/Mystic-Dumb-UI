@@ -40,28 +40,23 @@ local JPSlida = pt:CreateSlider({
 
 local SizeSlider = pt:CreateSlider({
    Name = "Player Size",
-   Range = {0.1, 300.0},
+   Range = {0.1, 3.0},
    Increment = 0.1,
    Suffix = "x",
    CurrentValue = 1.0,
    Flag = "charsize",
    Callback = function(Value)
-      local player = game.Players.LocalPlayer
+      local Players = game:GetService("Players")
+      local player = Players.LocalPlayer
       if player and player.Character then
          local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
          if humanoid then
-            local scales = {
-               "BodyHeightScale",
-               "BodyWidthScale",
-               "BodyDepthScale",
-               "HeadScale"
-            }
-            for _, scaleName in ipairs(scales) do -- almost did a // comment lel
-               local scale = humanoid:FindFirstChild(scaleName)
-               if scale then
-                  scale.Value = Value
-               end
-            end
+            local desc = humanoid:GetAppliedDescription()
+            desc.HeightScale = Value
+            desc.WidthScale = Value
+            desc.DepthScale = Value
+            desc.HeadScale = Value
+            humanoid:ApplyDescription(desc) -- not moine
          end
       end
    end,
@@ -191,6 +186,7 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
 
 
