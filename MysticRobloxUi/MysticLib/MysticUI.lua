@@ -4,7 +4,7 @@
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local version = "1.0.1"
+local version = "1.0.2"
 
 local MysticUI = {}
 
@@ -78,6 +78,7 @@ local LoadConfig = MysticUI.UITab:CreateButton({
 -- loadconfig
 -- Rayfield:LoadConfiguration()
 return MysticUI
+
 
 
 
