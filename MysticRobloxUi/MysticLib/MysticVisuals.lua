@@ -6,28 +6,37 @@ local visual = MysticUI.VisualTab
 local vSection = visual:CreateSection("Visuals")
 
 -- my attempt at making esp / cahms or whatever u call it
-local ChamsEnabled = false
+local Players = game:GetService("Players") -- the one tiem u will catch me declaring serbices ourside of  the code
 
+local LocalPlayer = Players.LocalPlayer
+
+local ChamsEnabled = false
 local highlights = {}
 
-local ChamsToggle = visual:CreateToggle({
+local ignoreTeam = false
+
+local visibleColor = Color3.fromRGB(255, 255, 255)
+
+local teamColor = Color3.fromRGB(0, 255, 0)
+
+local Chams = visual:CreateToggle({
     Name = "Chams",
     CurrentValue = false,
-    Flag = "ChamsToggle",
+    Flag = "chams",
     Callback = function(enabled)
         ChamsEnabled = enabled
 
-        local Players = game:GetService("Players")
-        local RunService = game:GetService("RunService")
-
         if enabled then
             for _, player in ipairs(Players:GetPlayers()) do
-                if player ~= Players.LocalPlayer and player.Character then
+                if player ~= LocalPlayer and player.Character then
+                    if ignoreTeam and player.Team == LocalPlayer.Team then continue end
+
                     local highlight = Instance.new("Highlight")
                     highlight.Adornee = player.Character
                     highlight.FillTransparency = 1
                     highlight.OutlineTransparency = 0
-                    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+                    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                    highlight.OutlineColor = (player.Team == LocalPlayer.Team) and teamColor or visibleColor
                     highlight.Parent = player.Character
                     highlights[player] = highlight
                 end
@@ -35,41 +44,62 @@ local ChamsToggle = visual:CreateToggle({
 
             Players.PlayerAdded:Connect(function(p)
                 p.CharacterAdded:Connect(function(char)
-                    if ChamsEnabled then
+                    if ChamsEnabled and (not ignoreTeam or p.Team ~= LocalPlayer.Team) then
                         local highlight = Instance.new("Highlight")
                         highlight.Adornee = char
                         highlight.FillTransparency = 1
                         highlight.OutlineTransparency = 0
-                        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+                        highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                        highlight.OutlineColor = (p.Team == LocalPlayer.Team) and teamColor or visibleColor
                         highlight.Parent = char
                         highlights[p] = highlight
                     end
                 end)
             end)
         else
-            for player, highlight in pairs(highlights) do
-                if highlight and highlight.Parent then
-                    highlight:Destroy()
-                end
+            for _, h in pairs(highlights) do
+                if h and h.Parent then h:Destroy() end
             end
             highlights = {}
         end
     end,
 })
 
--- Color Picker
-local ChamsClr = visual:CreateColorPicker({
-    Name = "Chams Color",
-    Color = Color3.fromRGB(255, 255, 255),
-    Flag = "chamscolro",
-    Callback = function(Value)
-        local Players = game:GetService("Players")
+local IgnoreTeam = visual:CreateToggle({
+    Name = "Ignore Team",
+    CurrentValue = false,
+    Flag = "ignoreteam",
+    Callback = function(value)
+        ignoreTeam = value
+    end,
+})
 
+local VisibleClr = visual:CreateColorPicker({
+    Name = "Visible Color",
+    Color = Color3.fromRGB(255, 255, 255),
+    Flag = "visablecolr",
+    Callback = function(value)
+        visibleColor = value
         for player, highlight in pairs(highlights) do
-            if highlight and highlight.Parent then
-                highlight.OutlineColor = Value
+            if player.Team ~= LocalPlayer.Team then
+                highlight.OutlineColor = visibleColor
             end
         end
     end,
 })
+
+local TeamClr = visual:CreateColorPicker({
+    Name = "Team Color",
+    Color = Color3.fromRGB(0, 255, 0),
+    Flag = "teamclr",
+    Callback = function(value)
+        teamColor = value
+        for player, highlight in pairs(highlights) do
+            if player.Team == LocalPlayer.Team then
+                highlight.OutlineColor = teamColor
+            end
+        end
+    end,
+})
+
 
