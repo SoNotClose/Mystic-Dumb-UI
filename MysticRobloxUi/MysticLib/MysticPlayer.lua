@@ -38,6 +38,62 @@ local JPSlida = pt:CreateSlider({
    end,
 })
 
+local SizeSlider = pt:CreateSlider({
+   Name = "Player Size",
+   Range = {0.1, 300.0},
+   Increment = 0.1,
+   Suffix = "x",
+   CurrentValue = 1.0,
+   Flag = "charsize",
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      if player and player.Character then
+         local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+         if humanoid then
+            local scales = {
+               "BodyHeightScale",
+               "BodyWidthScale",
+               "BodyDepthScale",
+               "HeadScale"
+            }
+            for _, scaleName in ipairs(scales) do -- almost did a // comment lel
+               local scale = humanoid:FindFirstChild(scaleName)
+               if scale then
+                  scale.Value = Value
+               end
+            end
+         end
+      end
+   end,
+})
+
+local jumpConnection
+
+local InfJump = pt:CreateToggle({
+   Name = "Infinite Jump",
+   CurrentValue = false,
+   Flag = "InfiniteJump",
+   Callback = function(enabled)
+      local UIS = game:GetService("UserInputService")
+      local Players = game:GetService("Players")
+      local LocalPlayer = Players.LocalPlayer
+         
+      if enabled then -- ik theres multipel ways of doing this but i wanna try this
+         jumpConnection = UIS.JumpRequest:Connect(function()
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+               LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            end
+         end)
+      else
+         if jumpConnection then
+            jumpConnection:Disconnect()
+            jumpConnection = nil
+         end
+      end
+   end,
+})
+
+
 local LPlayerSection = pt:CreateSection("Global Players")
 
 local selectedPlayer = nil
@@ -135,6 +191,7 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
 
 
