@@ -38,38 +38,6 @@ local JPSlida = pt:CreateSlider({
    end,
 })
 
-local SizeSlider = pt:CreateSlider({
-   Name = "Player Size",
-   Range = {0.1, 5.0}, -- You can go higher, but physics may get weird : nexus
-   Increment = 0.1,
-   Suffix = "x",
-   CurrentValue = 1.0,
-   Flag = "charsize",
-   Callback = function(Value)
-      local player = Players.LocalPlayer
-      local character = player.Character
-      if not character then return end
-
-      for _, part in ipairs(character:GetDescendants()) do
-         if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
-            part.Size = Vector3.new(1,1,1) * Value
-         elseif part:IsA("SpecialMesh") then
-            part.Scale = Vector3.new(1,1,1) * Value
-         end
-      end
-
-      local root = character:FindFirstChild("HumanoidRootPart")
-      if root then
-         root.Size = Vector3.new(2,2,1) * Value
-      end
-
-      local humanoid = character:FindFirstChildOfClass("Humanoid")
-      if humanoid then
-         humanoid.HipHeight = Value * 2
-      end
-   end,
-})
-
 local jumpConnection
 
 local InfJump = pt:CreateToggle({
@@ -95,6 +63,49 @@ local InfJump = pt:CreateToggle({
       end
    end,
 })
+
+local FreezeYaself = pt:CreateToggle({
+    Name = "Freeze Yourself",
+    CurrentValue = false,
+    Flag = "fy",
+    Callback = function(Value)
+        local UserInputService = game:GetService("UserInputService")
+        local StarterGui = game:GetService("StarterGui")
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+
+        local player = Players.LocalPlayer
+        local locked = Value
+
+        -- omg om gomg omg
+        local function notify(title, text)
+            StarterGui:SetCore("SendNotification", {
+                Title = title,
+                Text = text,
+                Duration = 2.5
+            })
+        end
+
+        if locked then
+            notify("[HARDLOCKED]", "Player can not be moved")
+        else
+            notify("[UNLOCKED]", "Player can move again")
+        end
+
+        RunService.RenderStepped:Connect(function()
+            if locked then
+                local character = player.Character
+                if character then
+                    local rootPart = character:FindFirstChild("HumanoidRootPart")
+                    if rootPart and not rootPart.Anchored then
+                        rootPart.Anchored = true
+                    end
+                end
+            end
+        end)
+    end,
+})
+
 
 
 local LPlayerSection = pt:CreateSection("Global Players")
@@ -194,6 +205,7 @@ local Teleport = pt:CreateButton({
       end
    end,
 })
+
 
 
 
