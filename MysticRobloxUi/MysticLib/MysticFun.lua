@@ -188,7 +188,7 @@ local SavePos = fun:CreateButton({
 local TweenService = game:GetService("TweenService")
 local tsped = nil
 
-local LoadType = Tab:CreateDropdown({
+local LoadType = fun:CreateDropdown({
     Name = "Load Type",
     Options = {"Tween", "CFrame"},
     CurrentOption = {"Tween"},
@@ -224,6 +224,7 @@ local TweenSpeedSlida = fun:CreateSlider({
          tsped = value
     end,
 })
+
 
 
 
