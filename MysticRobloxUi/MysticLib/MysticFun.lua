@@ -145,6 +145,32 @@ local Fling = fun:CreateToggle({
    end,
 })
 
+local ClickTP = fun:CreateToggle({
+    Name = "Click TP",
+    CurrentValue = false,
+    Flag = "clicktp",
+    Callback = function(Value)
+        local Players = game:GetService("Players")
+        local UserInputService = game:GetService("UserInputService")
+
+        local player = Players.LocalPlayer
+        local mouse = player:GetMouse()
+        local clickTPEnabled = Value
+
+        mouse.Button1Down:Connect(function()
+            if clickTPEnabled then
+                local character = player.Character or player.CharacterAdded:Wait()
+                local rootPart = character:FindFirstChild("HumanoidRootPart")
+                if rootPart and mouse.Hit then
+                    rootPart.CFrame = CFrame.new(mouse.Hit.Position + Vector3.new(0, 3, 0))
+                end
+            end
+        end)
+    end,
+})
+
+
+
 local savedCFrame = nil
 
 local SavePos = fun:CreateButton({
@@ -158,10 +184,6 @@ local SavePos = fun:CreateButton({
         end
     end,
 })
-
-
-
-
 
 local TweenService = game:GetService("TweenService")
 local tsped = nil
@@ -202,6 +224,7 @@ local TweenSpeedSlida = fun:CreateSlider({
          tsped = value
     end,
 })
+
 
 
 
